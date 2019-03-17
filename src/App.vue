@@ -41,7 +41,9 @@
                                 <div>
                                     <h2>{{team1.name}}</h2>
                                 </div>
-                                <b-img :src='team1.logo' class='team-logo' />
+                                <div class='logo-container'>
+                                    <b-img :src='team1.logo' class='team-logo' />
+                                </div>
                                 <div><strong>{{team1.conference}}</strong></div>
                                 <br />
                                 <h4>Torvik</h4>
@@ -65,7 +67,9 @@
                                 <div>
                                     <h2>{{team2.name}}</h2>
                                 </div>
-                                <b-img :src='team2.logo' class='team-logo' />
+                                <div class='logo-container'>
+                                    <b-img :src='team2.logo' class='team-logo' />
+                                </div>
                                 <div><strong>{{team2.conference}}</strong></div>
                                 <br />
                                 <h4>Torvik</h4>
@@ -96,7 +100,8 @@
                         <b-row>
                             <b-col>
                                 <div>
-                                    <p class='text-muted'>Note: These are approximations and may not perfectly match the official sites.</p>
+                                    <p class='text-muted'>Note: These are approximations and may
+                                        not perfectly match the official sites.</p>
                                 </div>
                                 <div><strong>Torvik: </strong>{{torvikWinner}} {{-torvikLine}}
                                     ({{torvikProb}}%)</div>
@@ -163,7 +168,8 @@
                 return 100 - (Math.round(prob * 1000) / 10);
             },
             torvikLine() {
-                let line = Math.abs(((this.team1.torvik.offensiveEff + this.team2.torvik.defensiveEff) - (this.team2.torvik.offensiveEff + this.team1.torvik.defensiveEff)) *
+                let line = Math.abs(((this.team1.torvik.offensiveEff + this.team2.torvik.defensiveEff) -
+                        (this.team2.torvik.offensiveEff + this.team1.torvik.defensiveEff)) *
                     (this.team1.torvik.tempo + this.team2.torvik.tempo) / 200);
                 return Math.round(line * 10) / 10;
             },
@@ -224,7 +230,8 @@
         color: #2c3e50;
     }
 
-    .team-logo {
+    .team-logo,
+    .logo-container {
         height: 250px;
     }
 
